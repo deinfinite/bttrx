@@ -1,25 +1,46 @@
-var ccxt = require('ccxt');
-var bittrex = new ccxt.bittrex({
-    apiKey: '2ff005835a454caeaeb55b0285a83d95',
-    secret: '455b08ede7fa4656a8285bebea83eaec',
-}); 
+var express = require('express');
+var path = require('path');
+var favicon = require('serve-favicon');
+var logger = require('morgan');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
 
-//bittrex.api.public + bittrex.api.account + bittrex.api.market 
-var makeRequest = async () => {
-  try {
-    // парсинг JSON может вызвать ошибку
-    var bittrexProducts = await bittrex.loadProducts ();
-    
-    console.log (bittrex.id,    bittrexProducts);
-    console.log (Object.keys (bittrex));
+var index = require('./routes/index');
+var users = require('./routes/users');
 
+var app = express();
 
-  } catch (err) {
-    console.log(err)
-  }
-};
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'hjs');
 
+// uncomment after placing your favicon in /public
+//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
 
-makeRequest();
+app.use('/', index);
+app.use('/users', users);
 
-//bittrex.api.public + bittrex.api.account + bittrex.api.market 
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
+
+// error handler
+app.use(function(err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error');
+});
+
+module.exports = app;
