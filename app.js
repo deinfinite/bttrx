@@ -21,5 +21,5 @@ var makeRequest = async () => {
 
 
 makeRequest();
-1
+
 //bittrex.api.public + bittrex.api.account + bittrex.api.market 
