@@ -21,8 +21,8 @@ wss.broadcast = function (data) {
 //bittrex api initial
 var bittrex = require('node.bittrex.api');
 bittrex.options({
-    'apikey': '2ff005835a454caeaeb55b0285a83d95',
-    'apisecret': '455b08ede7fa4656a8285bebea83eaec',
+    'apikey': '',
+    'apisecret': '',
     'stream': true, // will be removed from future versions 
     'verbose': true,
     'cleartext': false
