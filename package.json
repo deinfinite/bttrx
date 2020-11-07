@@ -9,7 +9,7 @@
     "body-parser": "~1.17.1",
     "ccxt": "^1.1.39",
     "cookie-parser": "~1.4.3",
-    "debug": "~2.6.3",
+    "debug": "~2.6.9",
     "express": "~4.15.2",
     "hjs": "~0.0.6",
     "morgan": "~1.8.1",
