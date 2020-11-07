@@ -1,7 +1,7 @@
 var ccxt = require('ccxt');
 var bittrex = new ccxt.bittrex({
-    apiKey: '2ff005835a454caeaeb55b0285a83d95',
-    secret: '455b08ede7fa4656a8285bebea83eaec',
+    apiKey: '',
+    secret: '',
     timeout: '30000'
 });
 var curr;
