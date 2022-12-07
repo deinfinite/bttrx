@@ -10,7 +10,7 @@
     "ccxt": "^1.1.39",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.3",
-    "express": "~4.15.2",
+    "express": "~4.17.3",
     "hjs": "~0.0.6",
     "morgan": "~1.8.1",
     "node.bittrex.api": "^0.3.3",
